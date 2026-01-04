@@ -1,0 +1,7 @@
+@Metadata.layer: #CORE
+annotate view z_b_det_custromer_0086 with
+{
+  @UI.connectedFields: [{hidden: true}]
+  ID;
+
+}

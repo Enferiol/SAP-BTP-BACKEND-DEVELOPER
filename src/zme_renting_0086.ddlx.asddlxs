@@ -1,0 +1,36 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+    typeName: 'Coches',
+    typeNamePlural: 'Coches',
+    typeImageUrl: '',
+    imageUrl: 'Imagen',
+    title: {
+        type: #STANDARD,
+        label: '',
+        iconUrl: '',
+        criticality: '',
+        criticalityRepresentation: #WITHOUT_ICON,
+        value: 'Marca',
+        valueQualifier: '',
+        targetElement: '',
+        url: ''
+    },
+    description: {
+        type: #STANDARD,
+        label: '',
+        iconUrl: '',
+        criticality: '',
+        criticalityRepresentation: #WITHOUT_ICON,
+        value: 'Modelo',
+        valueQualifier: '',
+        targetElement: '',
+        url: ''
+    }
+}
+annotate view Z_I_RENTING_0086 with
+{
+  @UI.connectedFields: [{hidden: true}]
+  Matricula;
+
+
+}
