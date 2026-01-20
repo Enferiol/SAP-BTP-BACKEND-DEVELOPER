@@ -10,6 +10,7 @@ define view z_b_brands_0086
 {
 
   key marca as Marca,
+  @UI.hidden: true
       url   as Imagen
 
 }
