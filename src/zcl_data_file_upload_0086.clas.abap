@@ -224,10 +224,10 @@ CLASS zcl_data_file_upload_0086 IMPLEMENTATION.
   | <script> \n| &&
   | sap.ui.require(['sap/ui/core/Core'],(oCore, ) => \{ \n| &&
   | \n| &&
-  | sap.ui.getCore().loadLibrary("sap.f",\{ \n| &&
+  | sap.ui.getCore().loadLibrary("sap.f", \{ \n| &&
   | async: true \n| &&
   | \}).then(() => \{ \n| &&
-  | let shell = newsap.f.ShellBar("shell") \n| &&
+  | let shell = new sap.f.ShellBar("shell") \n| &&
   | shell.setTitle("ABAP FileUploader") \n| &&
   | shell.setShowCopilot(true) \n| &&
   | shell.setShowSearch(true) \n| &&
@@ -237,18 +237,18 @@ CLASS zcl_data_file_upload_0086 IMPLEMENTATION.
   | sap.ui.getCore().loadLibrary("sap.ui.layout", \{ \n| &&
   | async: true \n| &&
   | \}).then(() => \{ \n| &&
-  | let layout = newsap.ui.layout.VerticalLayout("layout") \n| &&
+  | let layout = new sap.ui.layout.VerticalLayout("layout") \n| &&
   | layout.placeAt("uiArea") \n| &&
-  | let line2 = newsap.ui.layout.HorizontalLayout("line2") \n| &&
-  | let line3 = newsap.ui.layout.HorizontalLayout("line3") \n| &&
-  | let line4 = newsap.ui.layout.HorizontalLayout("line4") \n| &&
+  | let line2 = new sap.ui.layout.HorizontalLayout("line2") \n| &&
+  | let line3 = new sap.ui.layout.HorizontalLayout("line3") \n| &&
+  | let line4 = new sap.ui.layout.HorizontalLayout("line4") \n| &&
   | sap.ui.getCore().loadLibrary("sap.m", \{ \n| &&
   | async: true \n| &&
   | \}).then(() => \{\}) \n| &&
-  | let button = newsap.m.Button("button") \n| &&
+  | let button = new sap.m.Button("button") \n| &&
   | button.setText("Upload File") \n| &&
   | button.attachPress(function() \{ \n| &&
-  | let oFileUploader =oCore.byId("fileToUpload") \n| &&
+  | let oFileUploader = oCore.byId("fileToUpload") \n| &&
   | if (!oFileUploader.getValue()) \{ \n| &&
   | sap.m.MessageToast.show("Choose a file first") \n| &&
   | return \n| &&
@@ -266,7 +266,7 @@ CLASS zcl_data_file_upload_0086 IMPLEMENTATION.
   | dataOption: oGroup.getSelectedIndex() \})) \n| &&
   | oFileUploader.upload() \n| &&
   | \}) \n| &&
-  | let input = newsap.m.Input("tablename") \n| &&
+  | let input = new sap.m.Input("tablename") \n| &&
   | input.placeAt("layout") \n| &&
   | input.setRequired(true) \n| &&
   | input.setWidth("600px") \n| &&
@@ -275,7 +275,7 @@ CLASS zcl_data_file_upload_0086 IMPLEMENTATION.
   | input.attachSuggest(function (oEvent)\{ \n| &&
   | jQuery.ajax(\{headers: \{ "sap-table-request":oEvent.getParameter("suggestValue") \n | &&
   | \}, \n| &&
-  | error: function(oErr)\{ alert( JSON.stringify(oErr))\}, timeout: 30000, method:"GET",dataType: "json",success: function(myJSON) \{ \n| &&
+  | error: function(oErr)\{ alert( JSON.stringify(oErr))\}, timeout: 30000, method:"GET",dataType:"json",success:function(myJSON) \{ \n| &&
   " | alert( 'test' ) \n| &&
   | let input = oCore.byId("tablename") \n | &&
   | input.destroySuggestionItems() \n | &&
@@ -289,14 +289,14 @@ CLASS zcl_data_file_upload_0086 IMPLEMENTATION.
   | line2.placeAt("layout") \n| &&
   | line3.placeAt("layout") \n| &&
   | line4.placeAt("layout") \n| &&
-  | let groupDataOptions = newsap.m.RadioButtonGroup("grpDataOptions") \n| &&
-  | let lblGroupDataOptions = newsap.m.Label("lblDataOptions") \n| &&
+  | let groupDataOptions = new sap.m.RadioButtonGroup("grpDataOptions") \n| &&
+  | let lblGroupDataOptions = new sap.m.Label("lblDataOptions") \n| &&
   | lblGroupDataOptions.setLabelFor(groupDataOptions) \n| &&
   | lblGroupDataOptions.setText("Data Upload Options") \n| &&
   | lblGroupDataOptions.placeAt("line3") \n| &&
   | groupDataOptions.placeAt("line4") \n| &&
-  | rbAppend = newsap.m.RadioButton("rbAppend") \n| &&
-  | rbReplace = newsap.m.RadioButton("rbReplace") \n| &&
+  | rbAppend = new sap.m.RadioButton("rbAppend") \n| &&
+  | rbReplace = new sap.m.RadioButton("rbReplace") \n| &&
   | rbAppend.setText("Append") \n| &&
   | rbReplace.setText("Replace") \n| &&
   | groupDataOptions.addButton(rbAppend) \n| &&
@@ -306,11 +306,11 @@ CLASS zcl_data_file_upload_0086 IMPLEMENTATION.
   | sap.ui.getCore().loadLibrary("sap.ui.unified", \{ \n| &&
   | async: true \n| &&
   | \}).then(() => \{ \n| &&
-  | var fileUploader = newsap.ui.unified.FileUploader( \n| &&
+  | var fileUploader = new sap.ui.unified.FileUploader( \n| &&
   | "fileToUpload") \n| &&
   | fileUploader.setFileType("json") \n| &&
   | fileUploader.setWidth("400px") \n| &&
-  | let param = newsap.ui.unified.FileUploaderParameter("uploadParam") \n| &&
+  | let param = new sap.ui.unified.FileUploaderParameter("uploadParam") \n| &&
   | param.setName("tablename") \n| &&
   | fileUploader.addParameter(param) \n| &&
   | fileUploader.placeAt("line2") \n| &&
